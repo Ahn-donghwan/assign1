@@ -19,6 +19,29 @@ public class App { public static void main(String[] args) {
             System.out.println("사칙 연산 기호를 입력하세요: ");
             char operator = sc.next().charAt(0);
 
+            int result = 0;
+            // 제어문을 활용하여 위 요구사항을 만족할 수 있게 구현한다.
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                case '%':
+                    result = num1 % num2;
+                    break;
+                default :
+                    System.out.println("연산이 불가능합니다.");
+            }
+            System.out.println(result);
 
 }
 }
