@@ -10,7 +10,6 @@ public class App { public static void main(String[] args) {
 //        int count = 0;
 
         ArrayList<Integer> results = new ArrayList<>();
-        String inquiry = "";
 
             while (true) {  // true 를 쓰면 while 문을 조건없이 무한 반복한다는 의미
                 System.out.println("첫 번째 숫자를 입력하세요: ");
@@ -69,6 +68,7 @@ public class App { public static void main(String[] args) {
                 }
 
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+                String inquiry = sc.nextLine();
                 // iter -> 향상된 for 문 자동완성 키
                 if (inquiry.equals("inquiry")) {
                     for (Integer i : results) {
