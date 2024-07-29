@@ -10,7 +10,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         String input = "";
 
-        ArrayList<int[]> intList = new ArrayList<>();
+        ArrayList<Integer> intList = new ArrayList<>();
 
         for (; !input.equals("exit"); ) {
 
@@ -57,7 +57,7 @@ public class App {
             }
 
             // 결과를 ArrayList에 저장
-            intList.add(new int[]{num1, num2, operator, result});
+            intList.add(result);
 
             sc.nextLine(); // 버퍼 비우기
 
@@ -78,8 +78,8 @@ public class App {
             input = sc.nextLine();
             if (input.equals("inquiry")) {
                 // for 문 = for ( 변수타입 변수명 : 배열 ) { 연산 }
-                for (int[] res : intList) {
-                    System.out.println(res[0] + " " + (char)res[2] + " " + res[1] + " = " + res[3]);
+                for (int res : intList) {
+                    System.out.println(res);
                 }
             }
 
