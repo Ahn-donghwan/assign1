@@ -6,8 +6,10 @@ import java.util.Scanner;
 public class App { public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int[] results = new int[10];
-        int count = 0;
+//        int[] results = new int[10];
+//        int count = 0;
+
+        ArrayList<Integer> results = new ArrayList<>();
 
 
             while (true) {  // true 를 쓰면 while 문을 조건없이 무한 반복한다는 의미
@@ -46,14 +48,24 @@ public class App { public static void main(String[] args) {
                         System.out.println("연산이 불가능합니다.");
                 }
                 System.out.println(result);
-                if (count == 10) {
-                    for (int i = 1; i < 10; i++) {  // 1칸씩 땡길꺼라 1부터 돌린다.
-                        results[i - 1] = results[i];
-                    }
-                    results[9] = result;
-                }   else {
-                    results[count++] = result;
+//                if (count == 10) {
+//                    for (int i = 1; i < 10; i++) {  // 1칸씩 땡길꺼라 1부터 돌린다.
+//                        results[i - 1] = results[i];
+//                    }
+//                    results[9] = result;
+//                }   else {
+//                    results[count++] = result;
+//                }
+
+                // 결과를 ArrayList에 저장
+                results.add(result);
+                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                if(sc.nextLine().equals("remove")){
+                    results.remove(0);
                 }
+
+
+                // remove 입력시 삭제
 
                 System.out.println("더 계산하시겠습니까? (exit 시 입력종료)");
                 String end = sc.nextLine();
