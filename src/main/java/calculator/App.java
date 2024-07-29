@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -9,7 +10,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
         String input = "";
 
-        for ( ; !input.equals("exit") ;) {
+        ArrayList<int[]> resultList = new ArrayList<>();
+
+        for (; !input.equals("exit"); ) {
 
             System.out.println("첫 번째 숫자를 입력하세요: ");
             // Scanner 를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장한다.
@@ -50,7 +53,11 @@ public class App {
                 }
             } else {
                 System.out.println("다시 입력해주세요.");
+                continue;
             }
+
+            // 결과를 ArrayList에 저장
+            resultList.add(new int[]{num1, num2, operator, result});
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료) ");
             input = sc.next();
