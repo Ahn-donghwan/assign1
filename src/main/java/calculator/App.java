@@ -10,7 +10,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         String input = "";
 
-        ArrayList<int[]> resultList = new ArrayList<>();
+        ArrayList<int[]> intList = new ArrayList<>();
 
         for (; !input.equals("exit"); ) {
 
@@ -57,10 +57,37 @@ public class App {
             }
 
             // 결과를 ArrayList에 저장
-            resultList.add(new int[]{num1, num2, operator, result});
+            intList.add(new int[]{num1, num2, operator, result});
+
+            sc.nextLine(); // 버퍼 비우기
+
+            // remove 입력시 삭제
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            input = sc.nextLine();
+            if (input.equals("remove")) {
+                if (!intList.isEmpty()) {
+                    intList.remove(0);
+                    System.out.println("가장 먼저 저장된 값이 삭제됨.");
+                } else {
+                    System.out.println("삭제할 값이 없습니다.");
+                }
+            }
+
+            // inquiry 입력시 조회
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            input = sc.nextLine();
+            if (input.equals("inquiry")) {
+                // for 문 = for ( 변수타입 변수명 : 배열 ) { 연산 }
+                for (int[] res : intList) {
+                    System.out.println(res[0] + " " + (char)res[2] + " " + res[1] + " = " + res[3]);
+                }
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료) ");
-            input = sc.next();
+            input = sc.nextLine();
         }
+
+        // 프로그램 종료 시 Scanner 닫기 // 챗지피티가 닫아라고함.
+        sc.close();
     }
 }
